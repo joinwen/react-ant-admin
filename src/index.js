@@ -1,4 +1,5 @@
 import { React, ReactDOM, App} from "./core";
+import "./bootstrap";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
