@@ -1,0 +1,31 @@
+.Error {
+  height: 100%;
+
+  .bg {
+    height: 400px;
+    background: url("../../../assets/images/exception/500.png") 50% 50% / contain no-repeat;
+  }
+  .text {
+    margin-top: 4em;
+    text-align: center;
+    font-size: 24px;
+  }
+  .btn-control {
+    text-align: center;
+    .btn-return {
+      margin-right: 1em;
+      height: 32px;
+      border: 1px solid #00c4c2;
+      border-radius: 4px;
+
+      &:hover {
+        color: #00c4c2;
+      }
+    }
+    .btn-refresh {
+      margin-left: 1em;
+      background: #00c4c2;
+      color: #fff;
+    }
+  }
+}

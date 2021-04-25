@@ -1,6 +1,12 @@
+import BasicLayout from "./layout/basic-layout/BasicLayout";
+import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
-    <h2>App</h2>
+    <Router
+      keyLength={12}
+    >
+      <BasicLayout/>
+    </Router>
   )
 };
 export default App;
