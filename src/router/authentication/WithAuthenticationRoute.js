@@ -1,9 +1,8 @@
-import getAccessToken from "../../tools/loginUtil";
+import isAuthenticated from "../../tools/authenticationUtil";
 import { Route, Redirect } from "react-router-dom";
 function WithAuthenticationRoute({ children, ...rest }) {
-  let token = getAccessToken(),
-    comp = null;
-  if (token) {
+  let comp = null;
+  if (isAuthenticated()) {
     comp = children;
   } else {
     comp = <Redirect to="/login"/>;
