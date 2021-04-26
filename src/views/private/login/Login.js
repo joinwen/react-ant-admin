@@ -1,4 +1,6 @@
 import { Form, Input, Button, Checkbox } from "antd";
+import {ACCESS_TOKEN} from "../../../config/globalConfig";
+import {useHistory } from "react-router-dom";
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -7,9 +9,14 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-function Login() {
+
+function Login(props) {
+  const history = useHistory ();
+
   const onFinish = (values) => {
     console.log("Success:", values);
+    localStorage.setItem(ACCESS_TOKEN, Date.now());
+    history.push("/home");
   };
 
   const onFinishFailed = (errorInfo) => {

@@ -1,17 +1,18 @@
-import { Route,Switch } from "react-router-dom";
+import WithNotMatchSwitch from "../../router/not-match/WithNotMatchSwitch";
+import WithAuthenticationRoute from "../../router/authentication/WithAuthenticationRoute";
 function Table() {
   return (
-    <Switch>
-      <Route path="/table/basic">
+    <WithNotMatchSwitch>
+      <WithAuthenticationRoute path="/table/basic">
         <h2>基础表格</h2>
-      </Route>
-      <Route path="/table/step">
+      </WithAuthenticationRoute>
+      <WithAuthenticationRoute path="/table/step">
         <h2>分步表格</h2>
-      </Route>
-      <Route path="/table/advanced">
+      </WithAuthenticationRoute>
+      <WithAuthenticationRoute path="/table/advanced">
         <h2>高级表格</h2>
-      </Route>
-    </Switch>
+      </WithAuthenticationRoute>
+    </WithNotMatchSwitch>
   )
 };
 export default Table;

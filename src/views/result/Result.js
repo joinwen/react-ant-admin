@@ -1,15 +1,15 @@
-import { Route } from "react-router-dom";
-import WithNotMatch from "../../router/not-match/WithNotMatch";
+import WithNotMatchSwitch from "../../router/not-match/WithNotMatchSwitch";
+import WithAuthenticationRoute from "../../router/authentication/WithAuthenticationRoute";
 function Result() {
   return (
-    <WithNotMatch>
-      <Route exact path="/result/success">
+    <WithNotMatchSwitch>
+      <WithAuthenticationRoute exact path="/result/success">
         <h2>Success</h2>
-      </Route>
-      <Route exact path="/result/failure">
+      </WithAuthenticationRoute>
+      <WithAuthenticationRoute exact path="/result/failure">
         <h2>Failure</h2>
-      </Route>
-    </WithNotMatch>
-  )
-};
+      </WithAuthenticationRoute>
+    </WithNotMatchSwitch>
+  );
+}
 export default Result;

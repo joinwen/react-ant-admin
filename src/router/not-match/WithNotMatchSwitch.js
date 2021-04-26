@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import NotFound from "../../views/exception/not-found/NotFound";
-function WithNotMatch(props) {
+function WithNotMatchSwitch(props) {
   let children = props.children;
   return (
     <Switch>
@@ -11,4 +11,4 @@ function WithNotMatch(props) {
     </Switch>
   )
 };
-export default WithNotMatch;
+export default WithNotMatchSwitch;

@@ -7,6 +7,7 @@ import Exception from "./views/exception/Exception";
 import NotFound from "./views/exception/not-found/NotFound";
 import UserLayout from "./layout/user-layout/UserLayout";
 import Login from "./views/private/login/Login";
+import WithAuthenticationRoute from "./router/authentication/WithAuthenticationRoute";
 function App() {
   return (
     <Router
@@ -21,11 +22,11 @@ function App() {
             <Login />
           </UserLayout>
         </Route>
-        <Route path="/home">
+        <WithAuthenticationRoute path="/home">
           <BasicLayout>
             <Home />
           </BasicLayout>
-        </Route>
+        </WithAuthenticationRoute>
         <Route path="/table">
           <BasicLayout>
             <Table />
@@ -41,9 +42,9 @@ function App() {
             <Exception />
           </BasicLayout>
         </Route>
-        <Route path="*">
+        <WithAuthenticationRoute path="*">
           <NotFound />
-        </Route>
+        </WithAuthenticationRoute>
       </Switch>
     </Router>
   )

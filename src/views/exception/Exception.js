@@ -1,21 +1,21 @@
-import WithNotMatch from "../../router/not-match/WithNotMatch";
+import WithNotMatchSwitch from "../../router/not-match/WithNotMatchSwitch";
+import WithAuthenticationRoute from "../../router/authentication/WithAuthenticationRoute";
 import NotFound from "./not-found/NotFound";
 import Forbidden from "./forbidden/Forbidden";
 import Error from "./error/Error";
-import { Route } from "react-router-dom";
 function Exception() {
   return (
-    <WithNotMatch>
-      <Route path="/exception/not-found">
+    <WithNotMatchSwitch>
+      <WithAuthenticationRoute path="/exception/not-found">
         <NotFound />
-      </Route>
-      <Route path="/exception/forbidden">
+      </WithAuthenticationRoute>
+      <WithAuthenticationRoute path="/exception/forbidden">
         <Forbidden />
-      </Route>
-      <Route path="/exception/error">
+      </WithAuthenticationRoute>
+      <WithAuthenticationRoute path="/exception/error">
         <Error />
-      </Route>
-    </WithNotMatch>
+      </WithAuthenticationRoute>
+    </WithNotMatchSwitch>
   );
 }
 export default Exception;
