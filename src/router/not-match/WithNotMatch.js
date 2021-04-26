@@ -4,7 +4,7 @@ function WithNotMatch(props) {
   let children = props.children;
   return (
     <Switch>
-      {props.children}
+      {children}
       <Route path="*">
         <NotFound />
       </Route>
