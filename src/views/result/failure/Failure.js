@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
 function Failure() {
-  return <h2>Failure</h2>;
+  const size = useSelector(state => state.app.size);
+  return <h2>
+    Failure {size}
+  </h2>;
 }
 export default Failure;
