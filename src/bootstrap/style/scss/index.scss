@@ -1,1 +1,21 @@
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: block;
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
 
+.middle {
+  vertical-align: middle;
+}

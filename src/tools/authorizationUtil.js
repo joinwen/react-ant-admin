@@ -1,8 +1,9 @@
 import { ACCESS_AUTHORIZATIONS } from "../config/globalConfig";
+import { store } from "../store/store";
 function isAuthorized(key) {
-  let keys = localStorage.getItem(ACCESS_AUTHORIZATIONS);
-  keys = keys ? keys.split(",") : [];
+  let { permissions } = store.getState().permission;
+  permissions = permissions || [];
   key = key ? key.split(",") : undefined;
-  return keys.some(item => key.includes(item));
+  return !key || permissions.some(item => key.includes(item));
 };
 export default isAuthorized;

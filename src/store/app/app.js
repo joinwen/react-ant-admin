@@ -14,4 +14,5 @@ export const appSlice = createSlice({
     },
   },
 });
+export const { SET_SIZE, SET_MOBILE } = appSlice.actions;
 export default appSlice.reducer;

@@ -1,13 +1,15 @@
 import WithNotMatchSwitch from "../../router/not-match/WithNotMatchSwitch";
 import WithAuthenticationRoute from "../../router/authentication/WithAuthenticationRoute";
+import Failure from "./failure/Failure";
+import Success from "./success/Success";
 function Result() {
   return (
     <WithNotMatchSwitch>
       <WithAuthenticationRoute exact path="/result/success">
-        <h2>Success</h2>
+        <Success />
       </WithAuthenticationRoute>
       <WithAuthenticationRoute exact path="/result/failure">
-        <h2>Failure</h2>
+        <Failure />
       </WithAuthenticationRoute>
     </WithNotMatchSwitch>
   );

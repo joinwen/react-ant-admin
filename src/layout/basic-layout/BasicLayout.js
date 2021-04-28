@@ -1,6 +1,6 @@
 import "./BasicLayout.css";
 import React from "react";
-import { Layout } from "antd";
+import { Layout,Button } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import BaseMenu from "../../components/base-menu/BaseMenu";
 const { Header, Sider, Content, Footer } = Layout;
@@ -14,6 +14,11 @@ class BasicLayout extends React.Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+  };
+  handleLogout = () => {
+    console.log(this.props);
+    localStorage.clear();
+    window.history.go(0);
   };
 
   render() {
@@ -35,6 +40,7 @@ class BasicLayout extends React.Component {
                 onClick: this.toggle,
               }
             )}
+            <Button onClick={this.handleLogout}>退出</Button>
           </Header>
           <Content
             className="site-layout-background"
