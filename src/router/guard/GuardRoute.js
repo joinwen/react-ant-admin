@@ -4,7 +4,7 @@ import isAuthenticated from "../../tools/authenticationUtil";
 import { useLocation } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import LoadingRedirect from "../loading-redirect/LoadingRedirect";
-import { getPermissions } from "../../store/permission/permission";
+import {getPermissions, Logout, SET_STATUS} from "../../store/user/user";
 import { DEFAULT_PATH, LOGIN_PATH } from "../../config/globalConfig";
 import { notification } from "antd";
 import NProgress from "nprogress";
@@ -15,7 +15,7 @@ function GuardRoute(props) {
   const location = useLocation(),
     dispatch = useDispatch(),
     title = props.title,
-    status = useSelector((state) => state.permission.status);
+    status = useSelector((state) => state.user.status);
   setTimeout(() => {
     setDocumentTitle(`${title}-${domTitle}`);
   });
@@ -23,7 +23,6 @@ function GuardRoute(props) {
     if (location.pathname === LOGIN_PATH) {
       return <Redirect to={DEFAULT_PATH} />;
     }
-    debugger;
     if (status !== "fulfilled") {
       if(status === "blocking") {
         dispatch(getPermissions());
@@ -33,14 +32,13 @@ function GuardRoute(props) {
         return <LoadingRedirect to={location.pathname} />;
       }
       if(status === "rejected") {
-        notification.open({
-          message: 'Notification Title',
+        dispatch(Logout());
+        notification.error({
+          message: '错误',
           description:
-            'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-          onClick: () => {
-            console.log('Notification Clicked!');
-          },
+              '获取用户信息失败',
         });
+        return <LoadingRedirect to={LOGIN_PATH} />
       }
     }
   }
