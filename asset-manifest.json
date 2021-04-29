@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "react-ant-admin/static/css/main.b5535336.chunk.css",
-    "main.js": "react-ant-admin/static/js/main.876080a9.chunk.js",
-    "main.js.map": "react-ant-admin/static/js/main.876080a9.chunk.js.map",
+    "main.js": "react-ant-admin/static/js/main.e29539c2.chunk.js",
+    "main.js.map": "react-ant-admin/static/js/main.e29539c2.chunk.js.map",
     "runtime-main.js": "react-ant-admin/static/js/runtime-main.ad673968.js",
     "runtime-main.js.map": "react-ant-admin/static/js/runtime-main.ad673968.js.map",
     "static/css/2.d82f4ccd.chunk.css": "react-ant-admin/static/css/2.d82f4ccd.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.d82f4ccd.chunk.css",
     "static/js/2.325d9890.chunk.js",
     "static/css/main.b5535336.chunk.css",
-    "static/js/main.876080a9.chunk.js"
+    "static/js/main.e29539c2.chunk.js"
   ]
 }
