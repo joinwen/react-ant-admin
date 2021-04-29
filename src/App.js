@@ -12,7 +12,7 @@ import GuardRoute from "./router/guard/GuardRoute";
 import WithAuthorizationRoute from "./router/authorization/WithAuthorizationRoute";
 function App() {
   return (
-    <Router keyLength={12}>
+    <Router keyLength={12} basename="/react-ant-admin">
       <WithNotMatchSwitch>
         <GuardRoute exact path="/">
           <Redirect to="/home" from="/" />

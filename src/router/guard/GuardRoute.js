@@ -11,11 +11,12 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 NProgress.configure({ showSpinner: false });
 function GuardRoute(props) {
-  NProgress.start();
   const location = useLocation(),
     dispatch = useDispatch(),
     title = props.title,
     status = useSelector((state) => state.user.status);
+  if(!props) return null;
+  NProgress.start();
   setTimeout(() => {
     setDocumentTitle(`${title}-${domTitle}`);
   });

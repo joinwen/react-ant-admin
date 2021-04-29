@@ -21,7 +21,7 @@ export const getPermissions = createAsyncThunk(
           "exception:forbidden",
         ]);
         // reject("error");
-      }, 5000);
+      }, 800);
     });
   }
 );
