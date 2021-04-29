@@ -4,7 +4,7 @@ export const getPermissions = createAsyncThunk(
   "permission/permissions",
   async (value) => {
     return await new Promise((resolve) => {
-      setTimeout(() => {
+      // setTimeout(() => {
         resolve([
           "home",
           "table",
@@ -19,7 +19,7 @@ export const getPermissions = createAsyncThunk(
           "exception:not-found",
           "exception:forbidden",
         ]);
-      });
+      // });
     });
   }
 );

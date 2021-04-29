@@ -12,42 +12,40 @@ import WithAuthenticationRoute from "./router/authentication/WithAuthenticationR
 import GuardRoute from "./router/guard/GuardRoute";
 function App() {
   return (
-    <Router
-      keyLength={12}
-    >
+    <Router keyLength={12}>
       <WithNotMatchSwitch>
-        <GuardRoute>
-          <WithAuthorizationRoute exact path="/">
-            <Redirect to="/home" from="/"></Redirect>
-          </WithAuthorizationRoute>
-          <WithAuthorizationRoute path="/login">
-            <UserLayout>
-              <Login />
-            </UserLayout>
-          </WithAuthorizationRoute>
-          <WithAuthenticationRoute permissions="home" path="/home">
+        <GuardRoute exact path="/">
+          <Redirect to="/home" from="/" />
+        </GuardRoute>
+        <GuardRoute path="/login" title="登录">
+          <UserLayout>
+            <Login />
+          </UserLayout>
+        </GuardRoute>
+        <GuardRoute path="/home" title="主页">
+          <WithAuthenticationRoute>
             <BasicLayout>
               <Home />
             </BasicLayout>
           </WithAuthenticationRoute>
-          <WithAuthorizationRoute permissions="home2" path="/table">
-            <BasicLayout>
-              <Table />
-            </BasicLayout>
-          </WithAuthorizationRoute>
-          <WithAuthorizationRoute path="/result">
-            <BasicLayout>
-              <Result />
-            </BasicLayout>
-          </WithAuthorizationRoute>
-          <WithAuthorizationRoute permissions="exception" path="/exception">
-            <BasicLayout>
-              <Exception />
-            </BasicLayout>
-          </WithAuthorizationRoute>
+        </GuardRoute>
+        <GuardRoute path="/table" title="表格">
+          <BasicLayout>
+            <Table />
+          </BasicLayout>
+        </GuardRoute>
+        <GuardRoute path="/result" title="结果页">
+          <BasicLayout>
+            <Result />
+          </BasicLayout>
+        </GuardRoute>
+        <GuardRoute path="/exception" title="异常页">
+          <BasicLayout>
+            <Exception />
+          </BasicLayout>
         </GuardRoute>
       </WithNotMatchSwitch>
     </Router>
-  )
-};
+  );
+}
 export default App;
