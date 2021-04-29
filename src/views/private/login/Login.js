@@ -16,7 +16,13 @@ function Login(props) {
   const onFinish = (values) => {
     console.log("Success:", values);
     localStorage.setItem(ACCESS_TOKEN, Date.now());
-    history.push("/home");
+    let search = history.location.search;
+    search = search && search.match((/\?redirect=(.*)$/))[1];
+    if(search) {
+      history.push(search);
+    } else {
+      history.push("/home");
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
