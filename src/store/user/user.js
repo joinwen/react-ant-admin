@@ -6,30 +6,23 @@ export const getPermissions = createAsyncThunk(
   async (value) => {
     return await new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve([
-          "home",
-          "table",
-          "table:basic",
-          "table:step",
-          "table:advanced",
-          "result",
-          "result:success",
-          "result:failure",
-          "exception",
-          "exception:error",
-          "exception:not-found",
-          "exception:forbidden",
-        ]);
-        // reject("error");
-      }, 800);
+        import("../../back/userInfo.json")
+          .then(res => {
+            resolve((JSON.parse(JSON.stringify(res))));
+          })
+          .catch(error => {
+            reject(error);
+          })
+      }, 1000);
     });
   }
 );
+
 export const Login = data => dispatch => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       let {username, password} = data;
-      if(username && password && username != "admin") {
+      if(username && password && username !== "admin") {
         localStorage.setItem(ACCESS_TOKEN, Date.now());
         dispatch(SET_NICKNAME("范巴斯特"));
         resolve(true);
@@ -58,6 +51,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     nickname: "",
+    userInfo: null,
     permissions: [],
     status: "blocking",
   },
@@ -78,7 +72,8 @@ export const userSlice = createSlice({
         state.status = "pending";
       })
       .addCase(getPermissions.fulfilled, (state, action) => {
-        state.permissions = action.payload;
+        state.userInfo = action.payload;
+        state.permissions = action.payload.permissions;
         state.status = "fulfilled";
       })
       .addCase(getPermissions.rejected, (state) => {
@@ -86,5 +81,5 @@ export const userSlice = createSlice({
       });
   },
 });
-export const { SET_PERMISSIONS, SET_STATUS, SET_NICKNAME } = userSlice.actions;
+export const { SET_STATUS, SET_NICKNAME } = userSlice.actions;
 export default userSlice.reducer;

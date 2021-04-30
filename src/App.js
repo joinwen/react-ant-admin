@@ -12,7 +12,7 @@ import GuardRoute from "./router/guard/GuardRoute";
 import WithAuthorizationRoute from "./router/authorization/WithAuthorizationRoute";
 function App() {
   return (
-    <Router keyLength={12}>
+    <Router keyLength={12} basename="/react-ant-admin">
       <WithNotMatchSwitch>
         <GuardRoute exact path="/">
           <Redirect to="/home" from="/" />
@@ -24,32 +24,36 @@ function App() {
         </GuardRoute>
         <GuardRoute path="/home" title="主页">
           <WithAuthenticationRoute>
-            <WithAuthorizationRoute>
-              <BasicLayout>
-                <Home />
-              </BasicLayout>
-            </WithAuthorizationRoute>
+            <BasicLayout>
+              <Home />
+            </BasicLayout>
           </WithAuthenticationRoute>
         </GuardRoute>
         <GuardRoute path="/table" title="表格">
           <WithAuthenticationRoute>
-            <BasicLayout>
-              <Table />
-            </BasicLayout>
+            <WithAuthorizationRoute>
+              <BasicLayout>
+                <Table />
+              </BasicLayout>
+            </WithAuthorizationRoute>
           </WithAuthenticationRoute>
         </GuardRoute>
         <GuardRoute path="/result" title="结果页">
           <WithAuthenticationRoute>
-            <BasicLayout>
-              <Result />
-            </BasicLayout>
+            <WithAuthorizationRoute>
+              <BasicLayout>
+                <Result />
+              </BasicLayout>
+            </WithAuthorizationRoute>
           </WithAuthenticationRoute>
         </GuardRoute>
         <GuardRoute path="/exception" title="异常页">
           <WithAuthenticationRoute>
-            <BasicLayout>
-              <Exception />
-            </BasicLayout>
+            <WithAuthorizationRoute>
+              <BasicLayout>
+                <Exception />
+              </BasicLayout>
+            </WithAuthorizationRoute>
           </WithAuthenticationRoute>
         </GuardRoute>
       </WithNotMatchSwitch>
