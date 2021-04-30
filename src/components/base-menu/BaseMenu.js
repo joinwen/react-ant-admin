@@ -30,18 +30,18 @@ function MenuItem(props) {
 }
 
 
-function BaseMenu() {
+function BaseMenu(props) {
+  const { collapsed } = props;
+  console.log(collapsed);
   const menuConfig = useSelector((state) => state.menu.menus);
   const rootSubmenuKeys = menuConfig.filter(item => {
-    if(item.children && item.children.length > 0)
-      return true
+    return item.children && item.children.length > 0
   }).map(item => item.path);
   const location = useLocation();
 
   const [openKeys, setOpenKeys] = useState([location.pathname.match(/^(\/\w*)\/?/)[1]]);
 
   const handleOpenChange = (keys) => {
-    debugger;
     const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -55,6 +55,7 @@ function BaseMenu() {
       openKeys={openKeys}
       selectedKeys={[location.pathname]}
       defaultSelectedKeys={[location.pathname]}
+      inlineCollapsed={collapsed}
       theme="dark"
       mode="inline"
     >

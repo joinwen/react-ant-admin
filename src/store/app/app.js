@@ -4,6 +4,7 @@ export const appSlice = createSlice({
   initialState: {
     size: "xl",
     mobile: false,
+    collapsed: false
   },
   reducers: {
     SET_SIZE: (state, action) => {
@@ -12,7 +13,10 @@ export const appSlice = createSlice({
     SET_MOBILE: (state, action) => {
       state.mobile = action.payload;
     },
+    SET_COLLAPSED: (state, action) => {
+      state.collapsed = action.payload;
+    }
   },
 });
-export const { SET_SIZE, SET_MOBILE } = appSlice.actions;
+export const { SET_SIZE, SET_MOBILE, SET_COLLAPSED } = appSlice.actions;
 export default appSlice.reducer;

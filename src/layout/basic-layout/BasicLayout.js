@@ -1,24 +1,21 @@
 import "./BasicLayout.css";
 import React from "react";
-import { Layout,Button } from "antd";
+import { connect } from "react-redux";
+import { SET_COLLAPSED } from "../../store/app/app";
+import { Logout } from "../../store/user/user";
+import { Layout, Button } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import BaseMenu from "../../components/base-menu/BaseMenu";
 const { Header, Sider, Content, Footer } = Layout;
 
 class BasicLayout extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
   toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
+    this.props.SET_COLLAPSED(!this.props.collapsed);
   };
   handleLogout = () => {
-    console.log(this.props);
-    localStorage.clear();
-    window.history.go(0);
+    this.props.Logout().then((res) => {
+      window.location.reload();
+    });
   };
 
   render() {
@@ -27,20 +24,21 @@ class BasicLayout extends React.Component {
         id="components-layout-demo-custom-trigger"
         className="site-layout"
       >
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+        <Sider trigger={null} collapsible collapsed={this.props.collapsed}>
           <div className="logo" />
-          <BaseMenu />
+          <BaseMenu collapsed={this.props.collapsed} />
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             {React.createElement(
-              this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              this.props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
                 className: "trigger",
                 onClick: this.toggle,
               }
             )}
             <Button onClick={this.handleLogout}>退出</Button>
+            <span className="fr m-r-2">{this.props.nickname}</span>
           </Header>
           <Content
             className="site-layout-background"
@@ -60,4 +58,9 @@ class BasicLayout extends React.Component {
     );
   }
 }
-export default BasicLayout;
+export default connect(
+  (state) => {
+    return { collapsed: state.app.collapsed, nickname: state.user.nickname };
+  },
+  { SET_COLLAPSED, Logout }
+)(BasicLayout);

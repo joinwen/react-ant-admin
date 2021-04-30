@@ -24,7 +24,6 @@ export const Login = data => dispatch => {
       let {username, password} = data;
       if(username && password && username !== "admin") {
         localStorage.setItem(ACCESS_TOKEN, Date.now());
-        dispatch(SET_NICKNAME("范巴斯特"));
         resolve(true);
       } else {
         reject(false);
@@ -74,6 +73,7 @@ export const userSlice = createSlice({
       .addCase(getPermissions.fulfilled, (state, action) => {
         state.userInfo = action.payload;
         state.permissions = action.payload.permissions;
+        state.nickname = "范巴斯藤";
         state.status = "fulfilled";
       })
       .addCase(getPermissions.rejected, (state) => {

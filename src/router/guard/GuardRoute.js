@@ -12,7 +12,6 @@ import "nprogress/nprogress.css";
 import { getMenus } from "../../store/menu/menu";
 NProgress.configure({ showSpinner: false });
 function GuardRoute(props) {
-  debugger;
   const location = useLocation(),
     dispatch = useDispatch(),
     title = props.title,
@@ -33,7 +32,7 @@ function GuardRoute(props) {
         dispatch(getPermissions());
         return <LoadingRedirect to={location.pathname} />;
       }
-      if(status === "pending") {
+      if(status === 'pending') {
         return <LoadingRedirect to={location.pathname} />;
       }
       if(status === "rejected") {
@@ -46,7 +45,7 @@ function GuardRoute(props) {
         return <LoadingRedirect to={LOGIN_PATH} />
       }
     }
-    if(menus && menus.length == 0) {
+    if(menus && menus.length === 0) {
       dispatch(getMenus());
     }
   }
