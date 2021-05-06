@@ -26,12 +26,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@loadable/component": "^5.14.1",
     "gh-pages": "^3.1.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
+    "node-sass": "^5.0.0",
     "prettier": "^2.2.1"
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "src/**/*.{js,css,md}": "prettier --write"
   }
 }

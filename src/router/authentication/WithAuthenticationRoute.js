@@ -3,9 +3,10 @@ import { useLocation } from "react-router-dom";
 import { LOGIN_PATH } from "../../config/globalConfig";
 import { Route, Redirect } from "react-router-dom";
 function WithAuthenticationRoute({ children, ...rest }) {
-  let comp = null;
+  let comp = null,
+    meta = rest.meta;
   const location = useLocation();
-  if (isAuthenticated()) {
+  if (isAuthenticated() || !meta || !meta.isLogin) {
     comp = children;
   } else {
     comp = <Redirect to={`${LOGIN_PATH}?redirect=${location.pathname}`} />;

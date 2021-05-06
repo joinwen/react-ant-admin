@@ -1,9 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import NotFound from "../../views/exception/not-found/NotFound";
-function WithNotMatchSwitch(props) {
-  let children = props.children;
+function WithNotMatchSwitch({children, ...rest }) {
   return (
-    <Switch>
+    <Switch {...rest}>
       {children}
       <Route path="*">
         <NotFound />

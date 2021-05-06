@@ -97,5 +97,88 @@
     "exception:error",
     "exception:not-found",
     "exception:forbidden"
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "component": "BasicLayout",
+      "meta": {
+        "isLogin": true
+      },
+      "children": [
+        {
+          "path": "/home",
+          "component": "home/Home",
+          "title": "首页",
+          "meta": {
+            "isLogin": true
+          }
+        },
+        {
+          "path": "/table",
+          "component": "BlankLayout",
+          "title": "表格",
+          "children": [
+            {
+              "path": "/table/basic",
+              "component": "table/basic-table/BasicTable",
+              "title": "基础表格"
+            },
+            {
+              "path": "/table/step",
+              "component": "table/step-table/StepTable",
+              "title": "分步表格"
+            },
+            {
+              "path": "/table/advanced",
+              "component": "table/advanced-table/AdvancedTable",
+              "title": "高级表格"
+            }
+          ]
+        },
+        {
+          "path": "/result",
+          "component": "BlankLayout",
+          "title": "结果页",
+          "children": [
+            {
+              "path": "/result/success",
+              "component": "result/success/Success",
+              "title": "成功页"
+            },
+            {
+              "path": "/result/failure",
+              "component": "result/failure/Failure",
+              "title": "失败页"
+            }
+          ]
+        },
+        {
+          "path": "/exception",
+          "component": "BasicLayout",
+          "title": "异常页",
+          "meta": {
+            "isLogin": true
+          },
+          "children": [
+            {
+              "path": "/exception/500",
+              "component": "exception/error/Error",
+              "title": "内部错误"
+            },
+            {
+              "path": "/exception/404",
+              "component": "exception/not-found/NotFound",
+              "title": "未找到"
+            },
+            {
+              "path": "/exception/400",
+              "component": "exception/forbidden/Forbidden",
+              "title": "无权限"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
