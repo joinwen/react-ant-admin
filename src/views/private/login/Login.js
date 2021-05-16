@@ -51,7 +51,7 @@ function Login(props) {
         name="username"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input />
+        <Input placeholder="admin 或者 root" />
       </Form.Item>
 
       <Form.Item
@@ -59,7 +59,7 @@ function Login(props) {
         name="password"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input.Password />
+        <Input.Password placeholder="1234" />
       </Form.Item>
 
       <Form.Item {...tailLayout} name="remember" valuePropName="checked">

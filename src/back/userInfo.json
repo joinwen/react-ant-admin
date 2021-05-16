@@ -45,15 +45,15 @@
       "icon": "BugFilled",
       "children": [
         {
-          "path": "/exception/error",
+          "path": "/exception/500",
           "name": "Error"
         },
         {
-          "path": "/exception/not-found",
+          "path": "/exception/404",
           "name": "Not Found"
         },
         {
-          "path": "/exception/forbidden",
+          "path": "/exception/403",
           "name": "Forbidden"
         }
       ]
@@ -155,7 +155,7 @@
         },
         {
           "path": "/exception",
-          "component": "BasicLayout",
+          "component": "BlankLayout",
           "title": "异常页",
           "meta": {
             "isLogin": true
@@ -172,7 +172,7 @@
               "title": "未找到"
             },
             {
-              "path": "/exception/400",
+              "path": "/exception/403",
               "component": "exception/forbidden/Forbidden",
               "title": "无权限"
             }

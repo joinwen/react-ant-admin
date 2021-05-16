@@ -6,7 +6,6 @@ import { Logout } from "../../store/user/user";
 import { Layout, Button } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import BaseMenu from "../../components/base-menu/BaseMenu";
-import BaseBreadcrumb from "../../components/base-breadcrumb/BaseBreadcrumb";
 const { Header, Sider, Content, Footer } = Layout;
 
 class BasicLayout extends React.Component {

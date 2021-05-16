@@ -50,8 +50,10 @@ function GuardRoute(props) {
       dispatch(getMenus());
     }
   } else {
-    if(menus && menus.length == 0 && location.pathname !== LOGIN_PATH) {
-      return <LoadingRedirect to={`${LOGIN_PATH}?redirect=${location.pathname}`} />;
+    if (menus && menus.length === 0 && location.pathname !== LOGIN_PATH) {
+      return (
+        <LoadingRedirect to={`${LOGIN_PATH}?redirect=${location.pathname}`} />
+      );
     }
   }
   NProgress.done();

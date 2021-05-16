@@ -1,24 +1,27 @@
 import { Breadcrumb } from "antd";
-import { useRouteMatch, useLocation, useHistory, withRouter } from "react-router-dom";
+import matchRoutes from "../../router/router-config/matchRoutes";
+import {
+  useLocation
+} from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function BaseBreadcrumb(props) {
-  const match = useRouteMatch(),
-    location = useLocation(),
-    history = useHistory();
-  console.log(match);
-  console.log(location);
-  console.log(history);
-  console.log(props);
+  const location = useLocation(),
+      routes = useSelector(state => state.router.routes),
+      branch = [];
+  matchRoutes(routes, location.pathname, branch);
+  console.log(branch);
   return (
     <Breadcrumb>
       <Breadcrumb.Item>Home</Breadcrumb.Item>
       <Breadcrumb.Item>
-        <a href="">Application Center</a>
+        <a>Application Center</a>
       </Breadcrumb.Item>
       <Breadcrumb.Item>
-        <a href="">Application List</a>
+        <a>Application List</a>
       </Breadcrumb.Item>
       <Breadcrumb.Item>An Application</Breadcrumb.Item>
     </Breadcrumb>
   );
-};
-export default withRouter(BaseBreadcrumb);
+}
+export default BaseBreadcrumb;

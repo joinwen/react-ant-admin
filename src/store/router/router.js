@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { constantRoutes } from "../../config/routerConfig";
-import generateRoutes from "../../tools/generateRoutes";
 export const getRoutes = () => (dispatch, getState) => {
   const state = getState(),
     routes = state.user.userInfo.routes;
-  dispatch(SET_ADD_ROUTES((JSON.parse(JSON.stringify(routes)))));
+  dispatch(SET_ADD_ROUTES(JSON.parse(JSON.stringify(routes))));
 };
 const routerSlice = createSlice({
   name: "router",

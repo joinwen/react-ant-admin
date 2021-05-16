@@ -1,10 +1,14 @@
-import loadable from "@loadable/component";
-
 const constantRoutes = [
   {
-    path: "/login",
-    component: "private/login/Login",
-    title: "登录",
+    path: "/private",
+    component: "UserLayout",
+    children: [
+      {
+        path: "/private/login",
+        component: "private/login/Login",
+        title: "登录",
+      },
+    ],
   },
 ];
 /**
