@@ -11,13 +11,16 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { getMenus } from "../../store/menu/menu";
 import { getRoutes } from "../../store/router/router";
+import generateRoutes from "../../tools/generateRoutes";
+import matchRoutes from "../router-config/matchRoutes";
 NProgress.configure({ showSpinner: false });
 function GuardRoute(props) {
   const location = useLocation(),
     dispatch = useDispatch(),
     title = props.title,
     status = useSelector((state) => state.user.status),
-    menus = useSelector((state) => state.router.addRoutes);
+    routes = useSelector((state) => state.router.routes),
+    addRoutes = useSelector((state) => state.router.addRoutes);
   if (!props) return null;
   NProgress.start();
   setTimeout(() => {
@@ -44,19 +47,24 @@ function GuardRoute(props) {
         });
         return <LoadingRedirect to={LOGIN_PATH} />;
       }
-    }
-    if (menus && menus.length === 0) {
-      dispatch(getRoutes());
-      dispatch(getMenus());
+    } else {
+      if (addRoutes && addRoutes.length === 0) {
+        dispatch(getRoutes());
+        dispatch(getMenus());
+      }
     }
   } else {
-    if (menus && menus.length === 0 && location.pathname !== LOGIN_PATH) {
+    const matches = matchRoutes(routes, location.pathname),
+      match = matches[matches.length - 1];
+    if (!match || match.route.isLogin) {
       return (
         <LoadingRedirect to={`${LOGIN_PATH}?redirect=${location.pathname}`} />
       );
     }
   }
   NProgress.done();
-  return props.children;
+  return typeof props.children === "function"
+    ? props.children(generateRoutes(routes))
+    : props.children;
 }
 export default GuardRoute;

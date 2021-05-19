@@ -102,17 +102,12 @@
     {
       "path": "/",
       "component": "BasicLayout",
-      "meta": {
-        "isLogin": true
-      },
+      "title": "主页",
       "children": [
         {
           "path": "/home",
           "component": "home/Home",
-          "title": "首页",
-          "meta": {
-            "isLogin": true
-          }
+          "title": "首页"
         },
         {
           "path": "/table",
@@ -157,9 +152,6 @@
           "path": "/exception",
           "component": "BlankLayout",
           "title": "异常页",
-          "meta": {
-            "isLogin": true
-          },
           "children": [
             {
               "path": "/exception/500",

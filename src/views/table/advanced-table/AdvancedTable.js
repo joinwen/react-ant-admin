@@ -7,5 +7,5 @@ function AdvancedTable() {
       <h2>高级表格</h2>
     </div>
   )
-};
+}
 export default AdvancedTable;

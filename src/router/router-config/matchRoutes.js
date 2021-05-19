@@ -8,8 +8,8 @@ function matchRoutes(routes, pathname, branch = []) {
       : Router.computeRootMatch(pathname);
     if (match) {
       branch.push({ route, match });
-      if (route.routes) {
-        matchRoutes(route.routes, pathname, branch);
+      if (route.children) {
+        matchRoutes(route.children, pathname, branch);
       }
     }
     return match;

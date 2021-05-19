@@ -13,14 +13,13 @@ function BaseBreadcrumb(props) {
   console.log(branch);
   return (
     <Breadcrumb>
-      <Breadcrumb.Item>Home</Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <a>Application Center</a>
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <a>Application List</a>
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>An Application</Breadcrumb.Item>
+      {
+        branch.map((item,index) => {
+          return (
+            <Breadcrumb.Item key={index}>{item.route.title}</Breadcrumb.Item>
+          )
+        })
+      }
     </Breadcrumb>
   );
 }
