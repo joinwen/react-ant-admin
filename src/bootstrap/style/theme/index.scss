@@ -1,7 +1,10 @@
+@import "basic-layout";
 html {
   font-size: 12px;
 }
 body {
+  color: $color-normal;
+  background-color: #fff;
   font-size: 14px;
   line-height: 1.5;
   font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;

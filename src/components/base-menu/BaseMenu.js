@@ -1,4 +1,3 @@
-// import menuConfig from "../../config/menuConfig";
 import { useSelector } from "react-redux";
 import { useState } from 'react';
 import { useLocation } from "react-router-dom";

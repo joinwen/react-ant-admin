@@ -1,0 +1,204 @@
+@import "default";
+.ant-drawer-content-wrapper {
+  width: $side-width !important;
+  .ant-drawer-body {
+    padding: 0;
+    background-color: $side-bg;
+    .ant-menu {
+      background-color: $side-bg;
+
+      .ant-menu-item {
+        span {
+          color: $side-menu-color;
+          a {
+            color: $side-menu-color;
+          }
+        }
+      }
+      .ant-menu-item-active {
+        span {
+          color: $side-menu-color-light;
+          a {
+            color: $side-menu-color-light;
+          }
+        }
+      }
+      .ant-menu-item-selected {
+        background-color: $side-menu-bg-light;
+        span {
+          color: $side-menu-color-light;
+          a {
+            color: $side-menu-color-light;
+          }
+        }
+      }
+      .ant-menu-submenu {
+        span {
+          color: $side-menu-color;
+        }
+        .ant-menu-submenu-arrow {
+          &:before {
+            background-color: $side-menu-color;
+          }
+          &:after {
+            background-color: $side-menu-color;
+          }
+        }
+      }
+      .ant-menu-submenu-active {
+        span {
+          color: $side-menu-color-light;
+        }
+        .ant-menu-submenu-arrow {
+          &:before {
+            background-color: $side-menu-color-light;
+          }
+          &:after {
+            background-color: $side-menu-color-light;
+          }
+        }
+      }
+      .ant-menu-submenu-selected {
+        span {
+          color: $side-menu-color-light;
+        }
+        .ant-menu-submenu-arrow {
+          &:before {
+            background-color: $side-menu-color-light;
+          }
+          &:after {
+            background-color: $side-menu-color-light;
+          }
+        }
+      }
+    }
+  }
+}
+.ease-0\.5 {
+  transition: all 0.2s ease-in-out;
+}
+
+#basic-layout {
+  background-color: #f0f2f5;
+  display: flex;
+  min-height: 100%;
+
+  .side-pc {
+    & {
+      flex: 0 0 auto;
+      min-height: 100%;
+      background-color: $side-bg;
+      .side-pseudo {
+      }
+      .side-real {
+        width: $side-width;
+      }
+    }
+
+    &.side-pc-fixed {
+      .side-real {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: $side-width;
+      }
+      .side-pseudo {
+        width: $side-width;
+        height: 100%;
+      }
+    }
+    &.side-pc-shrink {
+      .side-real {
+        width: $side-width-shrink;
+      }
+      .side-pseudo {
+        width: $side-width-shrink;
+      }
+    }
+  }
+
+  .section {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      & {
+        flex: 0 0 auto;
+        .header-real {
+          height: $head-height;
+          background-color: #fff;
+          box-shadow: 0 -8px 15px 1px rgba(0, 0, 0, 0.6);
+        }
+        .header-pseudo {
+          height: 0;
+        }
+      }
+      &.header-fixed {
+        .header-real {
+          position: fixed;
+          z-index: 2;
+          left: $side-width;
+          right: 0;
+          top: 0;
+        }
+        .header-pseudo {
+          height: $head-height;
+        }
+      }
+      &.header-fixed.header-grow {
+        .header-real {
+          left: $side-width-shrink;
+        }
+      }
+      &.header-fixed.header-mobile {
+        .header-real {
+          left: 0;
+        }
+      }
+    }
+    main {
+      flex: 1 1 auto;
+      background-color: #fff;
+    }
+    footer {
+      flex: 0 0 auto;
+      height: $footer-height;
+      color: $color-placeholder;
+      text-align: center;
+    }
+  }
+
+  .trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .trigger:hover {
+    color: #1890ff;
+  }
+  .logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.side-logo {
+  display: flex;
+  font-size: $fs-lg;
+  color: $side-menu-color-light;
+  margin: 0;
+  align-items: center;
+  height: $head-height;
+  justify-content: center;
+  & > img {
+    margin-right: 0.5em;
+    width: 32px;
+  }
+  & > span {
+    font-weight: 600;
+  }
+}
