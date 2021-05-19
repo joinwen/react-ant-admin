@@ -1,10 +1,19 @@
-import { getPermissions } from "../../../store/user/user";
-import { useSelector, useDispatch } from "react-redux";
+import { Result, Button } from "antd";
 function Success() {
-  const permissions = useSelector((state) => state.user.permissions);
-  const dispatch = useDispatch();
-  return <h2>Success
-  <button onClick={() => dispatch(getPermissions([1,2,3]))}>{permissions}</button>
-  </h2>;
+  return (
+      <div className="p-2 bg-white">
+        <Result
+            status="success"
+            title="Successfully!"
+            subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
+            extra={[
+              <Button type="primary" key="console">
+                Go Console
+              </Button>,
+              <Button key="buy">Buy Again</Button>,
+            ]}
+        />
+      </div>
+  )
 }
 export default Success;

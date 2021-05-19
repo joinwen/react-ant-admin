@@ -3,7 +3,7 @@ import { useState } from "react";
 function Home() {
   const [more, setMore] = useState(false);
   return (
-    <div>
+    <div className="p-2 bg-white">
       <h2>第一次亲密接触</h2>
       <Button style={{ marginBottom: "20px" }} onClick={() => setMore(!more)}>更多</Button>
       <p>

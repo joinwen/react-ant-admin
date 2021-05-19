@@ -17,15 +17,20 @@ function Header(props) {
     >
       <header className="header-pseudo" />
       <header className="header-real">
-        {React.createElement(
-          props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-          {
-            className: "trigger",
-            onClick: props.toggle,
-          }
-        )}
-        <Button onClick={props.handleLogout}>退出</Button>
-        <span className="fr m-r-2">{props.nickname}</span>
+        <div className="header-left">
+          {React.createElement(
+              props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+              {
+                className: "trigger",
+                onClick: props.toggle,
+              }
+          )}
+        </div>
+        <div className="header-centre"></div>
+        <div className="header-right">
+          <Button onClick={props.handleLogout}>退出</Button>
+          <span className="m-x-1">{props.nickname}</span>
+        </div>
       </header>
     </div>
   );

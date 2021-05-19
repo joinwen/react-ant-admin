@@ -126,9 +126,22 @@
       & {
         flex: 0 0 auto;
         .header-real {
+          display: flex;
+          align-items: center;
           height: $head-height;
           background-color: #fff;
           box-shadow: 0 -8px 15px 1px rgba(0, 0, 0, 0.6);
+          .header-left {
+            flex: 0 0 auto;
+          }
+          .header-right {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+          }
+          .header-centre {
+            flex: 1 1 auto;
+          }
         }
         .header-pseudo {
           height: 0;
@@ -159,7 +172,6 @@
     }
     main {
       flex: 1 1 auto;
-      background-color: #fff;
     }
     footer {
       flex: 0 0 auto;

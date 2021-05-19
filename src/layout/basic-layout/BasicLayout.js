@@ -1,4 +1,3 @@
-import "./BasicLayout.css";
 import React from "react";
 import { connect } from "react-redux";
 import { SET_COLLAPSED } from "../../store/app/app";
@@ -17,7 +16,6 @@ class BasicLayout extends React.Component {
       window.location.reload();
     });
   };
-
   render() {
     return (
       <section id="basic-layout">
