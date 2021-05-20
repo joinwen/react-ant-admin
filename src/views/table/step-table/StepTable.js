@@ -1,5 +1,5 @@
 import "./StepTable.scss";
-import { Steps, Button, message } from "antd";
+import { Steps } from "antd";
 import React from "react";
 import FirstForm from "./components/FirstForm";
 import SecondForm from "./components/SecondForm";
@@ -43,7 +43,6 @@ const StepTable = () => {
     next();
   }
   const handlePrev = (data) => {
-    console.log(params);
     prev();
   }
   const handleReset = () => {
