@@ -1,3 +1,106 @@
+@import "src/bootstrap/style/theme/variables";
+$fontSize-map: (
+  "xl": $fs-xl,
+  "lg": $fs-lg,
+  "md": $fs-md,
+  "normal": $fs-normal,
+  "sm": $fs-sm,
+  "xs": $fs-xs
+) !default;
+
+@each $name, $value in $fontSize-map {
+  .fs-#{$name} {
+    font-size: $value;
+  }
+}
+
+$fontWeight-map: (
+  "thin": $fw-thin,
+  "extra-light": $fw-extra-light,
+  "light": $fw-light,
+  "normal": $fw-normal,
+  "medium": $fw-medium,
+  "semi-bold": $fw-semi-bold,
+  "bold": $fw-bold,
+  "extra-bold": $fw-extra-bold,
+  "bolder": $fw-bolder,
+  "extra-bolder": $fw-extra-bolder
+) !default;
+
+@each $name, $value in $fontWeight-map {
+  .fw-#{$name} {
+    font-weight: $value;
+  }
+}
+$space-map: (
+  0: $space-0,
+  0\.5: $space-xxs,
+  1: $space-xs,
+  1\.5: $space-sm,
+  2: $space-normal,
+  2\.5: $space-md,
+  3: $space-lg,
+  3\.5: $space-xl,
+  4: $space-xxl
+) !default;
+$margin-map: (
+  t: (margin-top),
+  b: (margin-bottom),
+  l: (margin-left),
+  r: (margin-right),
+  x: (margin-left,margin-right),
+  y: (margin-top,margin-bottom),
+  all: (margin)
+) !default;
+$padding-map: (
+  t: (padding-top),
+  b: (padding-bottom),
+  l: (padding-left),
+  r: (padding-right),
+  x: (padding-left,padding-right),
+  y: (padding-top,padding-bottom),
+  all: (padding)
+) !default;
+
+@each $name, $value in $space-map {
+  @each $direction, $directionList in $margin-map {
+    @if $direction == all {
+      .m-#{$name} {
+        @each $prop in $direction {
+          #{$prop}: $value;
+        }
+      }
+    } @else {
+      .m-#{$direction}-#{$name} {
+        @each $prop in $directionList {
+          #{$prop}: $value;
+        }
+      }
+    }
+  }
+}
+
+@each $name, $value in $space-map {
+  @each $direction, $directionList in $padding-map {
+    @if $direction == all {
+      .p-#{$name} {
+        @each $prop in $directionList {
+          #{$prop}: $value;
+        }
+      }
+    } @else {
+      .p-#{$direction}-#{$name} {
+        @each $prop in $directionList {
+          #{$prop}: $value;
+        }
+      }
+    }
+  }
+}
+.ease-0\.5 {
+  transition: all 0.2s ease-in-out;
+}
+
 .fl {
   float: left;
 }
@@ -18,69 +121,6 @@
 
 .middle {
   vertical-align: middle;
-}
-.p-r-1 {
-  padding-right: 1rem;
-}
-.p-r-2 {
-  padding-right: 2rem;
-}
-.p-r-3 {
-  padding-right: 3rem;
-}
-
-.p-l-1 {
-  padding-left: 1rem;
-}
-.p-l-2 {
-  padding-left: 2rem;
-}
-.p-l-3 {
-  padding-left: 3rem;
-}
-.p-t-1 {
-  padding-top: 1rem;
-}
-.p-t-2 {
-  padding-top: 2rem;
-}
-.p-t-3 {
-  padding-top: 3rem;
-}
-.p-b-1 {
-  padding-bottom: 1rem;
-}
-.p-b-2 {
-  padding-bottom: 2rem;
-}
-.p-b-2 {
-  padding-bottom: 2rem;
-}
-.p-y-2 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-.p-x-2 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.p-2 {
-  padding: 2rem;
-}
-.m-r-1 {
-  margin-right: 1rem;
-}
-.m-r-2 {
-  margin-right: 2rem;
-}
-.m-x-1 {
-  margin-right: 1rem;
-  margin-left: 1rem;
-}
-
-.m-x-2 {
-  margin-right: 2rem;
-  margin-left: 2rem;
 }
 
 .bg-white {

@@ -1,25 +1,30 @@
+import "./StepTable.scss";
 import { Steps, Button, message } from "antd";
 import React from "react";
+import FirstForm from "./components/FirstForm";
+import SecondForm from "./components/SecondForm";
+import ThirdForm from "./components/ThirdForm";
+import BaseBreadcrumb from "../../../components/base-breadcrumb/BaseBreadcrumb";
 const { Step } = Steps;
 
 const steps = [
   {
     title: "First",
-    content: "First-content",
+    content: FirstForm,
   },
   {
     title: "Second",
-    content: "Second-content",
+    content: SecondForm
   },
   {
     title: "Last",
-    content: "Last-content",
+    content: ThirdForm,
   },
 ];
 
 const StepTable = () => {
   const [current, setCurrent] = React.useState(0);
-
+  const [params, setParams] = React.useState({});
   const next = () => {
     setCurrent(current + 1);
   };
@@ -28,35 +33,41 @@ const StepTable = () => {
     setCurrent(current - 1);
   };
 
+  const reset = () => {
+    setCurrent(0);
+    setParams({});
+  }
+
+  const handleNext = (data) => {
+    setParams({...params,...data});
+    next();
+  }
+  const handlePrev = (data) => {
+    console.log(params);
+    prev();
+  }
+  const handleReset = () => {
+    reset();
+  }
+
   return (
-    <div className="p-2 bg-white">
-      <Steps current={current}>
-        {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
-        ))}
-      </Steps>
-      <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button
-            type="primary"
-            onClick={() => message.success("Processing complete!")}
-          >
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
+    <>
+      <div className="step-header-wrapper p-2 bg-white main-reverse">
+        <BaseBreadcrumb />
+        <h2 className="fs-lg fw-bolder m-y-1">分步表单</h2>
+        <p>将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</p>
       </div>
-    </div>
+      <div className="step-content-wrapper bg-white">
+        <Steps current={current}>
+          {steps.map((item) => (
+            <Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+        <div className="step-content">{
+          React.createElement(steps[current].content, {handleNext, handlePrev, handleReset, params})
+        }</div>
+      </div>
+    </>
   );
 };
 export default StepTable;

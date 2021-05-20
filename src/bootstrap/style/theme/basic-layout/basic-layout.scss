@@ -1,0 +1,17 @@
+@import "src/bootstrap/style/theme/basic-layout/side/side-mobile/side-mobile";
+#basic-layout {
+  background-color: #f0f2f5;
+  display: flex;
+  min-height: 100%;
+  @import "src/bootstrap/style/theme/basic-layout/side/side";
+
+  .section {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    @import "src/bootstrap/style/theme/basic-layout/header/header";
+    @import "src/bootstrap/style/theme/basic-layout/main/main";
+    @import "src/bootstrap/style/theme/basic-layout/footer/footer";
+  }
+}

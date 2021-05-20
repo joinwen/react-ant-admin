@@ -10,7 +10,6 @@ function BaseBreadcrumb(props) {
       routes = useSelector(state => state.router.routes),
       branch = [];
   matchRoutes(routes, location.pathname, branch);
-  console.log(branch);
   return (
     <Breadcrumb>
       {

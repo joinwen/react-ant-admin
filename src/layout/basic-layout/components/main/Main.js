@@ -1,11 +1,6 @@
 function Main(props) {
   return (
-    <main
-      style={{
-        margin: "24px 16px",
-        minHeight: 0,
-      }}
-    >
+    <main>
       {props.children}
     </main>
   );

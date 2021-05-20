@@ -1,0 +1,16 @@
+.side-logo {
+  display: flex;
+  font-size: $fs-lg;
+  color: $side-menu-color-light;
+  margin: 0;
+  align-items: center;
+  height: $head-height;
+  justify-content: center;
+  & > img {
+    margin-right: 0.5em;
+    width: 32px;
+  }
+  & > span {
+    font-weight: 600;
+  }
+}

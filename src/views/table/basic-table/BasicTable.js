@@ -13,6 +13,7 @@ import {
   Col,
 } from 'antd';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import BaseBreadcrumb from "../../../components/base-breadcrumb/BaseBreadcrumb";
 const { Option } = Select;
 const formItemLayout = {
   labelCol: {
@@ -39,30 +40,38 @@ const BasicForm = () => {
   };
 
   return (
+    <>
+      <div className="main-reverse p-2 bg-white">
+        <BaseBreadcrumb />
+        <h2 className="fs-lg fw-bolder m-y-1">基础表格</h2>
+        <p>
+          表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。
+        </p>
+      </div>
       <div className="p-2 bg-white">
         <Form
-            name="validate_other"
-            {...formItemLayout}
-            onFinish={onFinish}
-            initialValues={{
-              'input-number': 3,
-              'checkbox-group': ['A', 'B'],
-              rate: 3.5,
-            }}
+          name="validate_other"
+          {...formItemLayout}
+          onFinish={onFinish}
+          initialValues={{
+            'input-number': 3,
+            'checkbox-group': ['A', 'B'],
+            rate: 3.5,
+          }}
         >
           <Form.Item label="Plain Text">
             <span className="ant-form-text">China</span>
           </Form.Item>
           <Form.Item
-              name="select"
-              label="Select"
-              hasFeedback
-              rules={[
-                {
-                  required: true,
-                  message: 'Please select your country!',
-                },
-              ]}
+            name="select"
+            label="Select"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please select your country!',
+              },
+            ]}
           >
             <Select placeholder="Please select a country">
               <Option value="china">China</Option>
@@ -71,15 +80,15 @@ const BasicForm = () => {
           </Form.Item>
 
           <Form.Item
-              name="select-multiple"
-              label="Select[multiple]"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please select your favourite colors!',
-                  type: 'array',
-                },
-              ]}
+            name="select-multiple"
+            label="Select[multiple]"
+            rules={[
+              {
+                required: true,
+                message: 'Please select your favourite colors!',
+                type: 'array',
+              },
+            ]}
           >
             <Select mode="multiple" placeholder="Please select favourite colors">
               <Option value="red">Red</Option>
@@ -101,14 +110,14 @@ const BasicForm = () => {
 
           <Form.Item name="slider" label="Slider">
             <Slider
-                marks={{
-                  0: 'A',
-                  20: 'B',
-                  40: 'C',
-                  60: 'D',
-                  80: 'E',
-                  100: 'F',
-                }}
+              marks={{
+                0: 'A',
+                20: 'B',
+                40: 'C',
+                60: 'D',
+                80: 'E',
+                100: 'F',
+              }}
             />
           </Form.Item>
 
@@ -121,14 +130,14 @@ const BasicForm = () => {
           </Form.Item>
 
           <Form.Item
-              name="radio-button"
-              label="Radio.Button"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please pick an item!',
-                },
-              ]}
+            name="radio-button"
+            label="Radio.Button"
+            rules={[
+              {
+                required: true,
+                message: 'Please pick an item!',
+              },
+            ]}
           >
             <Radio.Group>
               <Radio.Button value="a">item 1</Radio.Button>
@@ -142,61 +151,61 @@ const BasicForm = () => {
               <Row>
                 <Col span={8}>
                   <Checkbox
-                      value="A"
-                      style={{
-                        lineHeight: '32px',
-                      }}
+                    value="A"
+                    style={{
+                      lineHeight: '32px',
+                    }}
                   >
                     A
                   </Checkbox>
                 </Col>
                 <Col span={8}>
                   <Checkbox
-                      value="B"
-                      style={{
-                        lineHeight: '32px',
-                      }}
-                      disabled
+                    value="B"
+                    style={{
+                      lineHeight: '32px',
+                    }}
+                    disabled
                   >
                     B
                   </Checkbox>
                 </Col>
                 <Col span={8}>
                   <Checkbox
-                      value="C"
-                      style={{
-                        lineHeight: '32px',
-                      }}
+                    value="C"
+                    style={{
+                      lineHeight: '32px',
+                    }}
                   >
                     C
                   </Checkbox>
                 </Col>
                 <Col span={8}>
                   <Checkbox
-                      value="D"
-                      style={{
-                        lineHeight: '32px',
-                      }}
+                    value="D"
+                    style={{
+                      lineHeight: '32px',
+                    }}
                   >
                     D
                   </Checkbox>
                 </Col>
                 <Col span={8}>
                   <Checkbox
-                      value="E"
-                      style={{
-                        lineHeight: '32px',
-                      }}
+                    value="E"
+                    style={{
+                      lineHeight: '32px',
+                    }}
                   >
                     E
                   </Checkbox>
                 </Col>
                 <Col span={8}>
                   <Checkbox
-                      value="F"
-                      style={{
-                        lineHeight: '32px',
-                      }}
+                    value="F"
+                    style={{
+                      lineHeight: '32px',
+                    }}
                   >
                     F
                   </Checkbox>
@@ -210,11 +219,11 @@ const BasicForm = () => {
           </Form.Item>
 
           <Form.Item
-              name="upload"
-              label="Upload"
-              valuePropName="fileList"
-              getValueFromEvent={normFile}
-              extra="longgggggggggggggggggggggggggggggggggg"
+            name="upload"
+            label="Upload"
+            valuePropName="fileList"
+            getValueFromEvent={normFile}
+            extra="longgggggggggggggggggggggggggggggggggg"
           >
             <Upload name="logo" action="/upload.do" listType="picture">
               <Button icon={<UploadOutlined />}>Click to upload</Button>
@@ -234,10 +243,10 @@ const BasicForm = () => {
           </Form.Item>
 
           <Form.Item
-              wrapperCol={{
-                span: 12,
-                offset: 6,
-              }}
+            wrapperCol={{
+              span: 12,
+              offset: 6,
+            }}
           >
             <Button type="primary" htmlType="submit">
               Submit
@@ -245,6 +254,7 @@ const BasicForm = () => {
           </Form.Item>
         </Form>
       </div>
+    </>
   );
 };
 export default BasicForm;

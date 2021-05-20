@@ -1,0 +1,68 @@
+.ant-menu {
+  background-color: $side-bg;
+
+  .ant-menu-item {
+    span {
+      color: $side-menu-color;
+      a {
+        color: $side-menu-color;
+      }
+    }
+  }
+  .ant-menu-item-active {
+    span {
+      color: $side-menu-color-light;
+      a {
+        color: $side-menu-color-light;
+      }
+    }
+  }
+  .ant-menu-item-selected {
+    background-color: $side-menu-bg-light;
+    span {
+      color: $side-menu-color-light;
+      a {
+        color: $side-menu-color-light;
+      }
+    }
+  }
+  .ant-menu-submenu {
+    span {
+      color: $side-menu-color;
+    }
+    .ant-menu-submenu-arrow {
+      &:before {
+        background-color: $side-menu-color;
+      }
+      &:after {
+        background-color: $side-menu-color;
+      }
+    }
+  }
+  .ant-menu-submenu-active {
+    span {
+      color: $side-menu-color-light;
+    }
+    .ant-menu-submenu-arrow {
+      &:before {
+        background-color: $side-menu-color-light;
+      }
+      &:after {
+        background-color: $side-menu-color-light;
+      }
+    }
+  }
+  .ant-menu-submenu-selected {
+    span {
+      color: $side-menu-color-light;
+    }
+    .ant-menu-submenu-arrow {
+      &:before {
+        background-color: $side-menu-color-light;
+      }
+      &:after {
+        background-color: $side-menu-color-light;
+      }
+    }
+  }
+}
