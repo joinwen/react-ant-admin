@@ -1,4 +1,4 @@
-import "./StepTable.scss";
+import "./StepForm.scss";
 import { Steps } from "antd";
 import React from "react";
 import FirstForm from "./components/FirstForm";
@@ -14,7 +14,7 @@ const steps = [
   },
   {
     title: "Second",
-    content: SecondForm
+    content: SecondForm,
   },
   {
     title: "Last",
@@ -22,7 +22,7 @@ const steps = [
   },
 ];
 
-const StepTable = () => {
+const StepForm = () => {
   const [current, setCurrent] = React.useState(0);
   const [params, setParams] = React.useState({});
   const next = () => {
@@ -36,18 +36,18 @@ const StepTable = () => {
   const reset = () => {
     setCurrent(0);
     setParams({});
-  }
+  };
 
   const handleNext = (data) => {
-    setParams({...params,...data});
+    setParams({ ...params, ...data });
     next();
-  }
+  };
   const handlePrev = (data) => {
     prev();
-  }
+  };
   const handleReset = () => {
     reset();
-  }
+  };
 
   return (
     <>
@@ -62,11 +62,16 @@ const StepTable = () => {
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
-        <div className="step-content">{
-          React.createElement(steps[current].content, {handleNext, handlePrev, handleReset, params})
-        }</div>
+        <div className="step-content">
+          {React.createElement(steps[current].content, {
+            handleNext,
+            handlePrev,
+            handleReset,
+            params,
+          })}
+        </div>
       </div>
     </>
   );
 };
-export default StepTable;
+export default StepForm;

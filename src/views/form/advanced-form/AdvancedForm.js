@@ -1,7 +1,7 @@
 import { Input } from "antd";
 import BaseBreadcrumb from "../../../components/base-breadcrumb/BaseBreadcrumb";
 import FormCard from "./components/FormCard";
-function AdvancedTable() {
+function AdvancedForm() {
   const userData = [
     {
       label: "仓库名",
@@ -44,4 +44,4 @@ function AdvancedTable() {
     </>
   )
 }
-export default AdvancedTable;
+export default AdvancedForm;

@@ -11,8 +11,8 @@ import {
   Checkbox,
   Row,
   Col,
-} from 'antd';
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+} from "antd";
+import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
 import BaseBreadcrumb from "../../../components/base-breadcrumb/BaseBreadcrumb";
 const { Option } = Select;
 const formItemLayout = {
@@ -25,7 +25,7 @@ const formItemLayout = {
 };
 
 const normFile = (e) => {
-  console.log('Upload event:', e);
+  console.log("Upload event:", e);
 
   if (Array.isArray(e)) {
     return e;
@@ -36,7 +36,7 @@ const normFile = (e) => {
 
 const BasicForm = () => {
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    console.log("Received values of form: ", values);
   };
 
   return (
@@ -54,8 +54,8 @@ const BasicForm = () => {
           {...formItemLayout}
           onFinish={onFinish}
           initialValues={{
-            'input-number': 3,
-            'checkbox-group': ['A', 'B'],
+            "input-number": 3,
+            "checkbox-group": ["A", "B"],
             rate: 3.5,
           }}
         >
@@ -69,7 +69,7 @@ const BasicForm = () => {
             rules={[
               {
                 required: true,
-                message: 'Please select your country!',
+                message: "Please select your country!",
               },
             ]}
           >
@@ -85,12 +85,15 @@ const BasicForm = () => {
             rules={[
               {
                 required: true,
-                message: 'Please select your favourite colors!',
-                type: 'array',
+                message: "Please select your favourite colors!",
+                type: "array",
               },
             ]}
           >
-            <Select mode="multiple" placeholder="Please select favourite colors">
+            <Select
+              mode="multiple"
+              placeholder="Please select favourite colors"
+            >
               <Option value="red">Red</Option>
               <Option value="green">Green</Option>
               <Option value="blue">Blue</Option>
@@ -111,12 +114,12 @@ const BasicForm = () => {
           <Form.Item name="slider" label="Slider">
             <Slider
               marks={{
-                0: 'A',
-                20: 'B',
-                40: 'C',
-                60: 'D',
-                80: 'E',
-                100: 'F',
+                0: "A",
+                20: "B",
+                40: "C",
+                60: "D",
+                80: "E",
+                100: "F",
               }}
             />
           </Form.Item>
@@ -135,7 +138,7 @@ const BasicForm = () => {
             rules={[
               {
                 required: true,
-                message: 'Please pick an item!',
+                message: "Please pick an item!",
               },
             ]}
           >
@@ -153,7 +156,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="A"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                   >
                     A
@@ -163,7 +166,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="B"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                     disabled
                   >
@@ -174,7 +177,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="C"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                   >
                     C
@@ -184,7 +187,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="D"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                   >
                     D
@@ -194,7 +197,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="E"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                   >
                     E
@@ -204,7 +207,7 @@ const BasicForm = () => {
                   <Checkbox
                     value="F"
                     style={{
-                      lineHeight: '32px',
+                      lineHeight: "32px",
                     }}
                   >
                     F
@@ -231,13 +234,22 @@ const BasicForm = () => {
           </Form.Item>
 
           <Form.Item label="Dragger">
-            <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+            <Form.Item
+              name="dragger"
+              valuePropName="fileList"
+              getValueFromEvent={normFile}
+              noStyle
+            >
               <Upload.Dragger name="files" action="/upload.do">
                 <p className="ant-upload-drag-icon">
                   <InboxOutlined />
                 </p>
-                <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                <p className="ant-upload-text">
+                  Click or drag file to this area to upload
+                </p>
+                <p className="ant-upload-hint">
+                  Support for a single or bulk upload.
+                </p>
               </Upload.Dragger>
             </Form.Item>
           </Form.Item>
