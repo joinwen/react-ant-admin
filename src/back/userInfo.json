@@ -65,17 +65,7 @@
       "children": [
         {
           "path": "/chart/echarts",
-          "name": "Echarts",
-          "children": [
-            {
-              "path": "/chart/echarts/line",
-              "name": "Line"
-            },
-            {
-              "path": "/chart/echarts/pie",
-              "name": "Pie"
-            }
-          ]
+          "name": "Echarts"
         },
         {
           "path": "/chart/d3",
@@ -167,6 +157,18 @@
               "path": "/exception/403",
               "component": "exception/forbidden/Forbidden",
               "title": "无权限"
+            }
+          ]
+        },
+        {
+          "path": "/chart",
+          "component": "BlankLayout",
+          "title": "图表",
+          "children": [
+            {
+              "path": "/chart/echarts",
+              "component": "chart/echarts/Echarts",
+              "title": "echarts"
             }
           ]
         }
