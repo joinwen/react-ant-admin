@@ -56,6 +56,7 @@ function GuardRoute(props) {
   } else {
     const matches = matchRoutes(routes, location.pathname),
       match = matches[matches.length - 1];
+    console.log(match);
     if (!match || match.route.isLogin) {
       return (
         <LoadingRedirect to={`${LOGIN_PATH}?redirect=${location.pathname}`} />

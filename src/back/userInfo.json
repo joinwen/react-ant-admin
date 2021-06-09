@@ -6,20 +6,20 @@
       "icon": "HomeFilled"
     },
     {
-      "path": "/table",
+      "path": "/form",
       "name": "表单",
       "icon": "DatabaseFilled",
       "children": [
         {
-          "path": "/table/basic",
+          "path": "/form/basic",
           "name": "基础表单"
         },
         {
-          "path": "/table/step",
+          "path": "/form/step",
           "name": "分布表单"
         },
         {
-          "path": "/table/advanced",
+          "path": "/form/advanced",
           "name": "高级表单"
         }
       ]
@@ -110,23 +110,23 @@
           "title": "首页"
         },
         {
-          "path": "/table",
+          "path": "/form",
           "component": "BlankLayout",
           "title": "表格",
           "children": [
             {
-              "path": "/table/basic",
-              "component": "table/basic-table/BasicTable",
+              "path": "/form/basic",
+              "component": "form/basic-form/BasicForm",
               "title": "基础表格"
             },
             {
-              "path": "/table/step",
-              "component": "table/step-table/StepTable",
+              "path": "/form/step",
+              "component": "form/step-form/StepForm",
               "title": "分步表格"
             },
             {
-              "path": "/table/advanced",
-              "component": "table/advanced-table/AdvancedTable",
+              "path": "/form/advanced",
+              "component": "form/advanced-form/AdvancedForm",
               "title": "高级表格"
             }
           ]
