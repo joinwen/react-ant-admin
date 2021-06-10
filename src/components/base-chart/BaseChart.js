@@ -2,7 +2,7 @@ import "./BaseChart.scss";
 import { useRef } from "react";
 import echarts from "echarts";
 import { useEffect } from "react";
-
+import { addListener } from "resize-detector";
 function BaseChart(props) {
   let options = props.options,
     theme = props.theme,
@@ -10,6 +10,9 @@ function BaseChart(props) {
   useEffect(() => {
     let chart = echarts.init(chartRef.current, theme);
     chart.setOption(options);
+    addListener(chartRef.current,() => {
+      chart.resize();
+    });
   });
   return (
     <div className="base-chart" ref={chartRef}>
