@@ -25,6 +25,21 @@
       ]
     },
     {
+      "name": "表格",
+      "path": "/table",
+      "icon": "UnorderedListOutlined",
+      "children": [
+        {
+          "name": "基础表格",
+          "path": "/table/basic"
+        },
+        {
+          "name": "高级表格",
+          "path": "/table/advanced"
+        }
+      ]
+    },
+    {
       "path": "/result",
       "name": "结果页",
       "icon": "TagFilled",
@@ -102,21 +117,38 @@
         {
           "path": "/form",
           "component": "BlankLayout",
-          "title": "表格",
+          "title": "表单",
           "children": [
             {
               "path": "/form/basic",
               "component": "form/basic-form/BasicForm",
-              "title": "基础表格"
+              "title": "基础表单"
             },
             {
               "path": "/form/step",
               "component": "form/step-form/StepForm",
-              "title": "分步表格"
+              "title": "分步表单"
             },
             {
               "path": "/form/advanced",
               "component": "form/advanced-form/AdvancedForm",
+              "title": "高级表单"
+            }
+          ]
+        },
+        {
+          "path": "/table",
+          "component": "BlankLayout",
+          "title": "表格",
+          "children": [
+            {
+              "path": "/table/basic",
+              "component": "table/condition-table/ConditionTable",
+              "title": "基础表格"
+            },
+            {
+              "path": "/table/advanced",
+              "component": "table/advanced-table/AdvancedTable",
               "title": "高级表格"
             }
           ]
