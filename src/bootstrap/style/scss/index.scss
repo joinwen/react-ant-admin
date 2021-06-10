@@ -126,3 +126,16 @@ $padding-map: (
 .bg-white {
   background: #fff;
 }
+
+/* shadow */
+.shadow-basic {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+
+.shadow-basic-b {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.shadow-light {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+}
