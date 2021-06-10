@@ -169,6 +169,11 @@
               "path": "/chart/echarts",
               "component": "chart/echarts/Echarts",
               "title": "echarts"
+            },
+            {
+              "path": "/chart/d3",
+              "component": "chart/d3/D3",
+              "title": "D3"
             }
           ]
         }
