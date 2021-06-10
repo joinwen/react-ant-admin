@@ -1,13 +1,22 @@
 import React from "react";
+import { Form } from "antd";
 import map from "./form-items";
 
 function BaseFormItem(props) {
   let data = props.data,
-    type = data.type,
-    comp = map[type];
-  return React.createElement(comp,{
-    id: data.prop,
-    ...data
-  }, data.children);
+    { kind, children, prop, label, rules, ...rest } = data,
+    comp = map[kind];
+  return (
+    <Form.Item name={prop} label={label} rules={rules}>
+      {React.createElement(
+        comp,
+        {
+          id: prop,
+          ...rest,
+        },
+        data.children
+      )}
+    </Form.Item>
+  );
 }
 export default BaseFormItem;
