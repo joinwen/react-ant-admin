@@ -12,17 +12,17 @@ function Echarts() {
         <Row gutter={24}>
           <Col xl={12} md={24} xs={24}>
             <figure className="p-1 shadow-light">
-              <Line />
-            </figure>
-          </Col>
-          <Col xl={12} md={24} xs={24}>
-            <figure className="p-1 shadow-light">
-              <Pie />
+              <Bar />
             </figure>
           </Col>
           <Col xl={12} md={24} xs={24}>
             <figure className="p-1 shadow-light">
               <Scatter />
+            </figure>
+          </Col>
+          <Col xl={12} md={24} xs={24}>
+            <figure className="p-1 shadow-light">
+              <Pie />
             </figure>
           </Col>
           <Col xl={12} md={24} xs={24}>
@@ -37,7 +37,7 @@ function Echarts() {
           </Col>
           <Col xl={12} md={24} xs={24}>
             <figure className="p-1 shadow-light">
-              <Bar />
+              <Line />
             </figure>
           </Col>
         </Row>

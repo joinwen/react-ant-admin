@@ -7,8 +7,8 @@ function BaseConditionForm({ data, layoutCol, ...props }) {
   };
   return (
     <Form {...layout} {...layoutCol} {...props}>
-      {data.map((item) => (
-        <BaseFormItem data={item} />
+      {data.map((item, index) => (
+        <BaseFormItem data={item} key={index} />
       ))}
     </Form>
   );
