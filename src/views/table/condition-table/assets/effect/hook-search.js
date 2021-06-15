@@ -1,16 +1,37 @@
 import { useState } from "react";
-import { getData } from "../service";
 
-function useHookSearch() {
+function useHookSearch(fn) {
   const [data, setData] = useState([]),
     [total, setTotal] = useState([]),
+    [page, setPage] = useState(1),
+    [pageSize, setPageSize] = useState(10),
     [loading, setLoading] = useState(false),
-    handleSearch = () => getData(setData, setTotal, setLoading);
+    handleSearch = (params) => {
+      setLoading(true);
+      fn({ ...params, page, pageSize })
+        .then((res) => {
+          setData(res.data);
+          setTotal(res.total);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+        });
+    },
+    handlePageChange = (page) => setPage(page),
+    handlePageSizeChange = (page, size) => {
+      setPageSize(size);
+      setPage(page);
+    };
   return [
     data,
     total,
+    page,
+    pageSize,
     loading,
-    handleSearch
-  ]
+    handlePageChange,
+    handlePageSizeChange,
+    handleSearch,
+  ];
 }
 export default useHookSearch;
