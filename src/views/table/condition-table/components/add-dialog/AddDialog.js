@@ -1,4 +1,5 @@
 import { Modal, Form, Input, Button, Space } from "antd";
+import { useRef } from "react";
 function AddDialog({
   title,
   visible,
@@ -7,8 +8,13 @@ function AddDialog({
   handleCancel,
   ...props
 }) {
+  const formRef = useRef(null);
   const handleFinish = (params) => {
-    handleOk(params);
+    handleOk(params).then((flag) => {
+      if (flag) {
+        formRef.current.resetFields();
+      }
+    });
   };
   const layout = {
     labelCol: {
@@ -34,7 +40,7 @@ function AddDialog({
       {...props}
       footer={null}
     >
-      <Form name="addDialog" {...layout} onFinish={handleFinish}>
+      <Form ref={formRef} name="addDialog" {...layout} onFinish={handleFinish}>
         <Form.Item
           label="姓名"
           name="username"

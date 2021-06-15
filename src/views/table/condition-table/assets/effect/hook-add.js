@@ -7,10 +7,11 @@ function useHookAdd(fn) {
   };
   const handleOk = (params) => {
     setDisabled(true);
-    fn(params).then((res) => {
+    return fn(params).then((res) => {
       setDisabled(false);
       if (res.flag) {
         setVisible(false);
+        return true;
       }
     });
   };
