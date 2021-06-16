@@ -10,15 +10,16 @@ function SideMobile() {
     dispatch(SET_COLLAPSED(false));
   };
   return (
-    <Drawer
-      placement="left"
-      closable={false}
-      onClose={onClose}
-      visible={collapsed}
-    >
-      <SideLogo />
-      <BaseMenu />
-    </Drawer>
+      <Drawer
+        className="side-mobile"
+        placement="left"
+        closable={false}
+        onClose={onClose}
+        visible={collapsed}
+      >
+        <SideLogo />
+        <BaseMenu />
+      </Drawer>
   );
 }
 export default SideMobile;
