@@ -87,6 +87,21 @@
           "name": "D3"
         }
       ]
+    },
+    {
+      "path": "/map",
+      "name": "地图",
+      "icon": "EnvironmentOutlined",
+      "children": [
+        {
+          "path": "/map/leaflet",
+          "name": "Leaflet"
+        },
+        {
+          "path": "/map/mapbox",
+          "name": "Mapbox"
+        }
+      ]
     }
   ],
   "permissions": [
@@ -206,6 +221,23 @@
               "path": "/chart/d3",
               "component": "chart/d3/D3",
               "title": "D3"
+            }
+          ]
+        },
+        {
+          "path": "/map",
+          "component": "BlankLayout",
+          "title": "地图",
+          "children": [
+            {
+              "path": "/map/leaflet",
+              "component": "map/leaflet/Leaflet",
+              "title": "leaflet"
+            },
+            {
+              "path": "/map/mapbox",
+              "component": "map/mapbox/Mapbox",
+              "title": "mapbox"
             }
           ]
         }

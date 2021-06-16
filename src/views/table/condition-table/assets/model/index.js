@@ -5,7 +5,7 @@ const conditionData = [
     label: "描述",
     allowClear: true,
     prop: "description",
-    rules: null,
+    rules: null
   },
   {
     kind: "input",

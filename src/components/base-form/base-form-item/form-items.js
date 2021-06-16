@@ -10,8 +10,7 @@ import {
   Tree,
   Button,
 } from "antd";
-import React from "react";
-export default {
+const map = {
   input: Input,
   "input-number": InputNumber,
   select: Select,
@@ -23,3 +22,4 @@ export default {
   tree: Tree,
   button: Button,
 };
+export default map;

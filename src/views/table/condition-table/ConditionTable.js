@@ -18,12 +18,13 @@ function ConditionTable() {
     handleSearch,
   ] = useHookSearch(getData);
   const [visible, disabled, handleAdd, handleOk, handleCancel] = useHookAdd(
-    addData
+    addData,
+    handleSearch
   );
   useEffect(() => {
     console.log("search");
     handleSearch();
-  }, [page, pageSize]);
+  }, [handleSearch]);
   return (
     <>
       <header className="main-reverse p-2 bg-white">
@@ -32,7 +33,7 @@ function ConditionTable() {
           data={conditionData}
           onFinish={handleSearch}
         >
-          <Button className="m-t-2 m-l-1" type="primary" onClick={handleAdd}>
+          <Button type="primary" onClick={handleAdd}>
             新增
           </Button>
         </BaseConditionForm>
@@ -43,6 +44,9 @@ function ConditionTable() {
           dataSource={dataSource}
           columns={columns}
           loading={loading}
+          scroll={{
+            x: 750,
+          }}
           pagination={{
             total: total,
             current: page,
