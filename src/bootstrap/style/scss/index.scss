@@ -141,3 +141,52 @@ $padding-map: (
 .shadow-light {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 }
+
+/* position */
+.rl {
+  position: relative;
+}
+.ab {
+  position: absolute;
+}
+.ab-center {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+/* flex */
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.inline-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+/* events */
+.events-none {
+  pointer-events: none;
+}
+
+/**
+  cursor
+ */
+.cursor {
+  cursor: pointer;
+}
+.move {
+  cursor: move;
+}
