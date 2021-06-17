@@ -20,7 +20,7 @@ function FormCard(props) {
             {
               data.map(item => {
                 return (
-                  <Col xl={8} sm={16}>
+                  <Col xl={8} xs={12}>
                     <Form.Item
                       label={item.label}
                     >

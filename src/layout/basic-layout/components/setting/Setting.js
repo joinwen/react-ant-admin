@@ -1,6 +1,5 @@
 import { Drawer, Tooltip, Switch, Divider, Button } from "antd";
 import { SketchPicker } from "react-color";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   SET_VISUAL_MODE,
@@ -10,15 +9,18 @@ import {
   SET_GLOBAL_STYLE,
   SET_NAV_DIRECTION,
 } from "store/app/app";
+import { changeNightMode, changeThemeColor } from "../../../../tools/themeUtil";
+
 function Setting({ visible, handleClose, children, ...props }) {
   const triggerStyle = {
-    position: "absolute",
+    position: "fixed",
     top: "50%",
     right: 0,
     transform: "translate(0, -50%)",
   };
   const handleColorChange = (color) => {
     dispatch(SET_COLOR(color));
+    changeThemeColor(color);
   };
   const dispatch = useDispatch();
   const navDirection = useSelector((state) => state.app.navDirection);
@@ -29,6 +31,7 @@ function Setting({ visible, handleClose, children, ...props }) {
   const tFixed = useSelector((state) => state.app.headerFixed);
   const handleVisualModeChange = (val) => {
     dispatch(SET_VISUAL_MODE(val));
+    changeNightMode(val);
   };
   const handleSideFixedChange = (val) => {
     dispatch(SET_SIDE_FIXED(val));

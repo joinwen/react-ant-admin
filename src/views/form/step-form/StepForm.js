@@ -1,5 +1,5 @@
 import "./StepForm.scss";
-import { Steps } from "antd";
+import { Steps, Row, Col } from "antd";
 import React from "react";
 import FirstForm from "./components/FirstForm";
 import SecondForm from "./components/SecondForm";
@@ -57,19 +57,23 @@ const StepForm = () => {
         <p>将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</p>
       </div>
       <div className="step-content-wrapper bg-white">
-        <Steps current={current}>
-          {steps.map((item) => (
-            <Step key={item.title} title={item.title} />
-          ))}
-        </Steps>
-        <div className="step-content">
-          {React.createElement(steps[current].content, {
-            handleNext,
-            handlePrev,
-            handleReset,
-            params,
-          })}
-        </div>
+        <Row type="flex" align="center">
+          <Col xl={16} xs={22}>
+            <Steps current={current}>
+              {steps.map((item) => (
+                <Step key={item.title} title={item.title} />
+              ))}
+            </Steps>
+            <div className="step-content">
+              {React.createElement(steps[current].content, {
+                handleNext,
+                handlePrev,
+                handleReset,
+                params,
+              })}
+            </div>
+          </Col>
+        </Row>
       </div>
     </>
   );

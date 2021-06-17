@@ -1,16 +1,22 @@
 import { Form, Input, InputNumber, Button } from 'antd';
 const layout = {
   labelCol: {
-    span: 4,
+    span: 6,
   },
   wrapperCol: {
-    span: 16,
+    span: 18,
   },
 };
 const tailLayout = {
   wrapperCol: {
-    span: 16,
-    offset: 4
+    sm: {
+      span: 18,
+      offset: 6
+    },
+    xs: {
+      span: 18,
+      offset: 0
+    }
   },
 }
 /* eslint-disable no-template-curly-in-string */

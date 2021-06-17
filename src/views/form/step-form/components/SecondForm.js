@@ -1,11 +1,20 @@
 import { Form, Input, Button } from "antd";
 function SecondForm(props) {
   const layout = {
-    labelCol: { span: 4},
-    wrapperCol: { span: 16}
+    labelCol: { span: 6},
+    wrapperCol: { span: 18}
   };
   const tailLayout = {
-    wrapperCol: { offset: 4, span: 16 },
+    wrapperCol: {
+      sm: {
+        span: 18,
+        offset: 6
+      },
+      xs: {
+        span: 24,
+        offset: 0
+      }
+    },
   };
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {

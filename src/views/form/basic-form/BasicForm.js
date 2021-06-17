@@ -226,7 +226,7 @@ const BasicForm = () => {
             label="Upload"
             valuePropName="fileList"
             getValueFromEvent={normFile}
-            extra="longgggggggggggggggggggggggggggggggggg"
+            extra="long"
           >
             <Upload name="logo" action="/upload.do" listType="picture">
               <Button icon={<UploadOutlined />}>Click to upload</Button>
@@ -256,8 +256,14 @@ const BasicForm = () => {
 
           <Form.Item
             wrapperCol={{
-              span: 12,
-              offset: 6,
+              sm: {
+                span: 12,
+                offset: 6
+              },
+              xs: {
+                span: 12,
+                offset: 0
+              }
             }}
           >
             <Button type="primary" htmlType="submit">
