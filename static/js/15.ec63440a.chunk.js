@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-ant-admin"]=this["webpackJsonpreact-ant-admin"]||[]).push([[15],{183:function(t,n,a){"use strict";a.r(n);var s=a(5);n.default=function(){return Object(s.jsx)("h2",{children:"Password"})}}}]);
-//# sourceMappingURL=15.ec63440a.chunk.js.map

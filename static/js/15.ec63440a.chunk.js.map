@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/private/password/Password.js"],"names":["Password"],"mappings":"6IAKeA,UALf,WACE,OACI","file":"static/js/15.ec63440a.chunk.js","sourcesContent":["function Password() {\r\n  return (\r\n      <h2>Password</h2>\r\n  )\r\n};\r\nexport default Password;\r\n"],"sourceRoot":""}

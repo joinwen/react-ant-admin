@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-ant-admin"]=this["webpackJsonpreact-ant-admin"]||[]).push([[52],{287:function(t,n,e){"use strict";e.r(n);var a=e(165),c=e(0);n.default=function(t,n){var e=Object(c.useState)(!1),u=Object(a.a)(e,2),i=u[0],r=u[1],f=Object(c.useState)(!1),s=Object(a.a)(f,2),o=s[0],b=s[1];return[i,o,function(){r(!0)},function(e){return b(!0),t(e).then((function(t){if(b(!1),t.flag)return r(!1),n&&n(),!0}))},function(){r(!1)}]}}}]);
+//# sourceMappingURL=52.66ec44e0.chunk.js.map

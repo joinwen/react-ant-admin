@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-ant-admin"]=this["webpackJsonpreact-ant-admin"]||[]).push([[20],{169:function(t,e,n){"use strict";n.r(e);var a=n(340),c=n(77),s=n(5);e.default=function(t){return Object(s.jsx)(a.a,{status:"success",title:"Success",subTitle:"happy to watch tv on netflix",extra:[Object(s.jsx)(c.a,{type:"primary",onClick:function(){t.handleReset()},children:"Again"},"console"),Object(s.jsx)(c.a,{children:"Home"},"buy")]})}}}]);
-//# sourceMappingURL=20.8839416d.chunk.js.map

@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-ant-admin"]=this["webpackJsonpreact-ant-admin"]||[]).push([[16],{174:function(e,t,a){"use strict";a.r(t);var s=a(340),i=a(77),n=a(5);t.default=function(){return Object(n.jsx)("div",{className:"p-2 bg-white",children:Object(n.jsx)(s.a,{status:"error",title:"Failed!",subTitle:"Failed message: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.",extra:[Object(n.jsx)(i.a,{type:"primary",children:"Go Console"},"console"),Object(n.jsx)(i.a,{children:"Buy Again"},"buy")]})})}}}]);
-//# sourceMappingURL=16.760b1eec.chunk.js.map

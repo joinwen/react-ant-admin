@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/base-chart/BaseChart.scss"],"names":[],"mappings":"AAAA,YACE,UAAW,CACX,YAAa","file":"24.f917fdb8.chunk.css","sourcesContent":[".base-chart {\n  width: 100%;\n  height: 400px;\n}\n"]}

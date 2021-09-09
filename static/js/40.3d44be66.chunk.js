@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-ant-admin"]=this["webpackJsonpreact-ant-admin"]||[]).push([[40],{269:function(t,a,e){"use strict";e.r(a);var n=e(494),i=e(4),h=[{label:"somethingA",values:[{x:"SomethingA",y:10},{x:"SomethingB",y:4},{x:"SomethingC",y:3}]}];a.default=function(){return Object(i.jsx)(n.BarChart,{data:h,width:400,height:400,margin:{top:10,bottom:50,left:50,right:10}})}}}]);
+//# sourceMappingURL=40.3d44be66.chunk.js.map
